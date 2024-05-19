@@ -1,0 +1,453 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-grey: #f3f4f3;
+  --color-white: #ffffff;
+  --slide-bar-left-margin: 270px;
+  --color-green: #64c5b1;
+  --color-hover-green: #baf5e9;
+  --color-text-black: #7d7a7a;
+  --custom-shadow: 0px 0px 27px -14px rgba(0, 0, 0, 0.75);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: var(--color-white);
+  position: relative;
+  background-color: var(--color-grey);
+}
+
+nav {
+  border-right: solid 2px var(--color-grey);
+  width: var(--slide-bar-left-margin);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--color-white);
+  transition: all 0.5s ease;
+}
+
+nav .logo {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  padding: 0 20px;
+  height: 82px;
+  border-bottom: solid 2px var(--color-grey);
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--color-green);
+}
+nav .logo i {
+  margin-top: -5px;
+}
+
+nav .logo .name {
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--color-name-black);
+}
+
+nav ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 0 0;
+}
+
+nav ul.menu li:hover > a > span,
+nav ul.menu li.active > a > span {
+  color: var(--color-green);
+}
+
+nav ul.menu li > a {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--color-green);
+}
+nav ul.menu li > a i {
+  margin-top: -2px;
+}
+
+nav ul.menu li > a span {
+  display: inline-block;
+  margin-left: 20px;
+  color: var(--color-text-black);
+}
+
+.container {
+  padding-left: var(--slide-bar-left-margin);
+  transition: all 0.5s ease;
+}
+
+.container header {
+  padding: 0 20px;
+  height: 80px;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container header .search-wrapper {
+  background: var(--color-white);
+  border: solid 1px var(--color-green);
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+}
+
+.container header .search-wrapper .fa-search {
+  color: var(--color-green);
+}
+.container header .search-wrapper .search {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-left: 10px;
+}
+
+.container main {
+  min-height: calc(100vh - 130px);
+}
+
+.container main .page-title {
+  height: 110px;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  padding: 20px;
+}
+
+.container main .page-title h3 {
+  font-size: 1.5625rem; /* 25px; */
+  margin: 0px;
+}
+
+.container footer {
+  height: 50px;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  padding: 0 20px;
+}
+
+.profile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.profile-menu ul li {
+  color: var(--color-text-black);
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.profile-menu ul li a {
+  color: var(--color-text-black);
+  text-decoration: none;
+}
+
+.avtr {
+  font-size: 32px;
+  margin-right: 10px;
+  margin-bottom: -2px;
+}
+.avt-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.profile-menu ul li:hover {
+  /* background: var(--color-hover-green); */
+  cursor: pointer;
+}
+
+.profile-menu ul li ul > li:hover {
+  background: var(--color-hover-green);
+}
+
+.profile-menu ul li ul {
+  background: var(--color-white);
+  visibility: hidden;
+  opacity: 0;
+  min-width: 100%;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+  box-shadow: 0px 0px 27px -14px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 27px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 27px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 27px -14px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile-menu ul li:hover > ul,
+.profile-menu ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.profile-menu ul li ul li {
+  clear: both;
+  width: 100%;
+}
+
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 0.875rem;
+}
+
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: ">";
+}
+
+ul.breadcrumb li a {
+  color: var(--color-text-black);
+  text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+main .analytics-overview {
+  padding: 20px 20px 0 20px;
+}
+
+main .analytics-overview h4 {
+  font-size: 1.1rem;
+  color: var(--color-text-black);
+}
+
+main .analytics-overview .content-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+main .analytics-overview .content-area .sec {
+  height: 30vh;
+  border: solid 1px var(--color-grey);
+  background-color: var(--color-white);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main .analytics-overview .content-area .sec .fa {
+  margin: 0px;
+  font-size: 1.5rem;
+}
+main .analytics-overview .content-area .sec h1 {
+  margin: 0px;
+  font-size: 2rem;
+}
+main .analytics-overview .content-area .sec p {
+  margin: 0px;
+  font-size: 0.875rem;
+  color: var(--color-text-black);
+}
+
+.followers-conversion {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+main .followers-conversion .content-area .sec {
+  min-height: 40vh;
+  border: solid 1px var(--color-grey);
+  background-color: var(--color-white);
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.followers h4,
+.conversion-rate h4 {
+  font-size: 1.1rem;
+  color: var(--color-text-black);
+}
+
+.followers .content-area i {
+  color: cadetblue;
+}
+.conversion-rate .content-area i {
+  color: chocolate;
+}
+
+main .followers-conversion .followers .content-area i {
+  font-size: 10rem;
+}
+
+main .followers-conversion .conversion-rate .content-area p {
+  margin: 0px 0px 0px 20px;
+  font-size: 0.875rem;
+  color: var(--color-text-black);
+}
+
+main .followers-conversion .conversion-rate .content-area i {
+  font-size: 10rem;
+}
+
+.total-followers i {
+  color: burlywood;
+}
+
+.impressions i {
+  color: brown;
+}
+
+.total-Engagement i {
+  color: blueviolet;
+}
+
+.conversion-rate i {
+  color: coral;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #919191;
+}
+#menu-bar {
+  display: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+#menu-bar i {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+/*samall mobile */
+@media (max-width: 767.98px) {
+  nav {
+    left: -275px;
+  }
+
+  nav.open {
+    left: 0px;
+    width: 185px;
+  }
+
+  nav.close {
+    left: -190px;
+    width: 185px;
+  }
+
+  .container {
+    padding-left: 0;
+  }
+  main .analytics-overview .content-area {
+    grid: none;
+  }
+
+  .followers-conversion {
+    grid: none;
+  }
+
+  main .followers-conversion .content-area .sec {
+    flex-direction: column-reverse;
+  }
+  .search-wrapper {
+    display: none !important;
+  }
+  #menu-bar {
+    display: block;
+  }
+
+  div.profile-menu > ul > li > a > span {
+    display: none;
+  }
+
+  .transl {
+    transform: translateX(185px);
+  }
+
+  .avtr {
+    margin-right: 0px;
+  }
+  .p0 {
+    padding-right:0 !important;
+  }
+
+  .profile-menu ul li ul {
+    right:0;
+    left:auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .search-wrapper {
+    display: flex !important;
+  }
+}
+
+/* // for tablet */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  main .analytics-overview .content-area {
+    grid-template-columns: 1fr 1fr;
+  }
+  .followers-conversion {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    width: 30vw !important;
+  }
+  .container {
+    padding-left: 30vw;
+  }
+}
